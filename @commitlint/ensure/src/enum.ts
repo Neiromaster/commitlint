@@ -5,5 +5,5 @@ export default (value: any, enums: any[] = []): boolean => {
 	if (!Array.isArray(enums)) {
 		return false;
 	}
-	return enums.indexOf(value) > -1;
+	return enums.some((v) => (v instanceof RegExp ? v.test(value) : v == value));
 };

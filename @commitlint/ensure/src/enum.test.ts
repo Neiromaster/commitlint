@@ -44,3 +44,13 @@ test('false for c against a, b', () => {
 	const actual = ensure('c', ['a', 'b']);
 	expect(actual).toBe(false);
 });
+
+test('true for b verified regex', () => {
+	const actual = ensure('b', [/^(a|b)/]);
+	expect(actual).toBe(true);
+});
+
+test('false for c unverified regex', () => {
+	const actual = ensure('c', [/^(a|b)/]);
+	expect(actual).toBe(false);
+});
